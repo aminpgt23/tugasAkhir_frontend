@@ -11,7 +11,7 @@
     <i class="fa fa-laptop" aria-hidden="true"></i>
     Tambah KK
   </router-link>
-  <router-link to="#">
+  <router-link to="/user">
     <i class="fa fa-clone" aria-hidden="true"></i>
     Users
   </router-link>

@@ -33,6 +33,7 @@
 
   <div class="bg-light  border border-secondary mt-4 ml-3"
    style="width:140%; border-radius:15px">
+     <h2 style="font-family:times new roman" class="text-center"> Data Keluarga</h2>
    <table class="table">
   <thead>
     <tr>
@@ -44,6 +45,7 @@
       <th scope="col">Action</th>
     </tr>
   </thead>
+
   <tbody>
     <tr v-for="(item,index) in DataKeluarga" :key="index">
       <th scope="row">{{index+=1}}</th>

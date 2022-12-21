@@ -36,6 +36,7 @@
     <div class="form-group col-md-6">
       <label for="inputPassword4">nomer kk</label>
       <input type="number" v-model="DataKeluarga.nomer_kk" class="form-control" id="inputPassword4" placeholder="Input KK">
+      <p v-show="error.nomer_kk">nomer kk sudah digunakan</p>
     </div>
   </div>
     <div class="form-row">
@@ -76,17 +77,28 @@ export default {
             "provinsi":null,
             "rt":null,
             "rw":null
-        }
+        },
+        DataMasuk:[],
+        error:{
+            nomer_kk:false
+        },
+       
     }
     },
     methods:{
      inputKK(){
-      let data =this.DataKeluarga;
-        dataService.create(data)
+      this.error={}
+        for(let i =0; i < this.DataMasuk.length; i++){
+            if(this.DataMasuk[i].nomer_kk == this.DataKeluarga.nomer_kk){
+                this.error.nomer_kk = true;
+                console.log(this.error);
+                
+            }
+        }
+        dataService.create(this.DataKeluarga)
       .then(response => {
         console.log(response.data);
-      });
-            this.$fire({
+           this.$fire({
         type: 'success',
         title: 'sukses',
         text: 'Data sudah terdaftar',
@@ -94,9 +106,20 @@ export default {
       }).then(() => {
         this.$router.push('/dashboard')
       })
+      });
+         
       },
+        getData(){
+        dataService.getAll()
+        .then(Response => {
+            this.DataMasuk = Response.data
+        })
+    }
        
     },
+    mounted(){
+      this.getData()
+    }
   }
 
 </script>

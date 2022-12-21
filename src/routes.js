@@ -7,6 +7,7 @@ import detail from './pages/detail.vue'
 import Add from "./pages/Add.vue";
 import AnggotaKK from "./pages/AnggotaKK.vue";
 import DetailAnggota from "./pages/DetailAnggota.vue";
+import user from './pages/User.vue'
 
 //export
 export default [
@@ -45,5 +46,10 @@ export default [
         path:"/:id/Add/DetailAnggota/:ide",
         component:DetailAnggota, 
         name:'DetailAnggota'  
+    },
+    {
+        path:"/user",
+        component:user,
+        name:'user'
     }
 ];

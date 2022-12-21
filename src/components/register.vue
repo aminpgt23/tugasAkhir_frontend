@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div >
     <div class="container px-4 py-5 mx-auto" style="width:70%">
         <div class="d-flex flex-lg-row flex-column-reverse justify-content-center">
             <div class="card card1">
@@ -9,13 +9,14 @@
                         <h3 class="mb-5 text-center heading">register E-KTP</h3>
                         <h6 class="msg-info">Please register your account</h6>
                         <form  @submit.prevent="Login">
-                        <div class="form-group"> <label class="form-control-label text-muted">name</label> <input type="text" id="name" name="name" placeholder="Input your name " v-model="DataUser.nama" class="form-control"> </div>
-                        <div class="form-group"> <label class="form-control-label text-muted">email</label> <input type="email" id="email" name="email" placeholder="Input your email " v-model="DataUser.email" class="form-control"> </div>
+                        <div class="form-group"> <label class="form-control-label text-muted">name</label> <input type="text" id="name" name="name" placeholder="Input your name " v-model="DataUser.nama" class="form-control" required> </div>
+                        <div class="form-group"> <label class="form-control-label text-muted">email</label> <input type="email" id="email" name="email" placeholder="Input your email " v-model="DataUser.email" class="form-control" required> </div>
                         <p v-show="error.email">email sudah digunakan!</p>
-                        <div class="form-group"> <label class="form-control-label text-muted">Password</label> <input type="password" id="psw" name="psw" placeholder="Password" v-model="DataUser.password" class="form-control"> </div>
+                        <div class="form-group"> <label class="form-control-label text-muted">Password</label> <input type="password" id="psw" name="psw" placeholder="Password" v-model="DataUser.password" class="form-control" required> </div>
                         <div class="form-group"> <label class="form-control-label text-muted">confirm password</label> <input type="password" id="password2" name="password2" placeholder="Input again your password " class="form-control" v-model="password2"> </div>
                         <p v-show="error.password">password tidak sama!</p>
-                        <div class="row justify-content-center my-3 px-3"> <button  class="btn-block btn-color text-center">submit</button> </div>
+                        <!-- <p>isi data terlebih dahulu</p> -->
+                        <div class="row justify-content-center my-3 px-3"> <button  class="btn-block btn-color text-center" >submit</button> </div>
                         </form>
                     </div>
                 </div>
@@ -68,7 +69,8 @@ data(){
             email:false,
             password:false
         },
-        password2:""
+        password2:"",
+        
         }
 },
 mounted() {
